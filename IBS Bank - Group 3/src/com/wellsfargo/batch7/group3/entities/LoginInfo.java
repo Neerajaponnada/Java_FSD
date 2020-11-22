@@ -4,6 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,8 +17,9 @@ public class LoginInfo{
 	@GeneratedValue
 	private Integer loginSeqId;
 	
-	@Column(name="LOGIN_ID")
-	private Integer loginid;
+	@OneToOne
+	@JoinColumn(name="UCI")
+	private CustomerAccount custId;
 	
 	@Column(name="LOGIN_TYPE")
 	private String loginType;
@@ -32,6 +35,8 @@ public class LoginInfo{
 	
 	@Column(name="SECURITY_ANS1")
 	private String securityAns;
+
+	private Integer loginid;
 
 	public LoginInfo() {
 		super();
